@@ -1,37 +1,41 @@
-//* LOGIN
-let loginData = document.querySelector("#loginData");
+const submissionButton = document.getElementById("submissionButton");
+const body = document.getElementById("body");
 
-function handleLogin() {
-  //! Login section
-  // Get the password and email of the user
-  let email = document.querySelector("#emailLogin").value;
-  let password = document.querySelector("#passwordLogin").value;
-  let emailCredentials = {
-    email: email,
-    password: password,
+
+const inputEmail = document.getElementById("email");
+const inputPasswordValue = document.getElementById("password");
+
+
+if (submissionButton) {
+  submissionButton.addEventListener("click", handleFormSubmission);
+}
+
+function handleFormSubmission(event) {
+  event.preventDefault();
+
+
+
+  const inputEmailValue = inputEmail.value;
+  const inputPasswordValue = inputPassword.value;
+
+  const url = "/";
+
+  const user = {
+    email: inputEmailValue,
+    password: inputPasswordValue,
+
   };
 
-  // Define parameters to use
-  let params = {
+  fetch(url, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json; charset=utf-8",
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(emailCredentials),
-  };
-
-  // send value to login.php
-  fetch("http://gestionapprenant/Public", params)
-    .then((res) => res.json())
-    .then((data) => {
-        console.log("bibibiibbibi")
-      if (data.status === "success") {
-        loginData.innerHTML = data.message + "<br> Vous allez etre redirigé";
-        if (data.userRole == 5 || data.userRole == 6) {
-        }
-      } else {
-        loginData.innerHTML = data.message;
-      }
-    })
-    .catch((error) => console.error("Error:", error));
+    body: JSON.stringify(user),
+  }).then((response) => {
+    return response.text();
+  }).then((result) => {
+    body.innerHTML = ''
+    body.innerHTML = result
+  });
 }

@@ -1,6 +1,8 @@
 <?php
 
 include_once __DIR__ . '/Includes/header.php';
+include_once __DIR__ . '/Includes/navBarreCo.php';
+
 ?>
 
 
@@ -29,7 +31,7 @@ include_once __DIR__ . '/Includes/header.php';
                 </div>
             </div>
             <div>
-                <button onclick="handleLogin() " class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Connexion</button>
+                <button id="submissionButton" class=" bouton flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Connexion</button>
             </div>
         </div>
 
@@ -40,7 +42,4 @@ include_once __DIR__ . '/Includes/header.php';
     </div>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./script.js"></script>
-
-    <?php
-    include_once __DIR__ . '/Includes/footer.php';
+    <script src="../../Public/assets/js/script.js>

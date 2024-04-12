@@ -4,6 +4,7 @@
 define('DB_HOST', 'localhost');
 
 define('HOME_URL', '/gestion-des-apprenants/public/');
+
 define('DB_NAME', 'gda');
 define('DB_USER', 'gda');
 define('DB_PWD', 'gda');

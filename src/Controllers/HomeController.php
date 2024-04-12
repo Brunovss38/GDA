@@ -17,22 +17,12 @@ class HomeController
             $erreur = '';
         }
 
-        $this->render("accueil", ["erreur" => $erreur]);
+        $this->render("connexion", ["erreur" => $erreur]);
     }
 
-    public function connexion()
+    public function Home()
     {
-        $this->render("accueil", ["section" => 'menu', 'action' => 'connexion']);
-    }
-
-    public function inscription()
-    {
-        $this->render("accueil", ["section" => 'menu', 'action' => 'inscription']);
-    }
-
-    public function formulaireResa()
-    {
-        $this->render("formulaireReservation", ["erreur" => '']);
+        $this->render("Home", ["section" => 'menu', 'action' => 'connexion']);
     }
 
     public function quit()
@@ -42,10 +32,6 @@ class HomeController
         die();
     }
 
-    public function new()
-    {
-        $this->render("dashboard", ["section" => 'new', 'action' => 'inscription']);
-    }
 
     public function page404(): void
     {
