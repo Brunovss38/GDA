@@ -1,18 +1,17 @@
 <?php
 
-namespace src\Services;
+spl_autoload_register('chargerClasses');
 
-final class Routing
+function chargerClasses($classe)
 {
-    public static function routeComposee(string $route): array
-    {
-        $routeComposee = ltrim($route, HOME_URL);
-        $routeComposee = rtrim($routeComposee, '/');
-        $routeComposee = explode('/', $routeComposee);
-
-        for ($i = sizeof($routeComposee); $i < 4; $i++) {
-            $routeComposee[$i] = null;
+    $classe = str_replace('src', '', $classe);
+    $classe = str_replace('\\', '/', $classe);
+    $fichier = $classe . '.php';
+    try {
+        if (file_exists(__DIR__ . $fichier)) {
+            require_once __DIR__ . $fichier;
         }
-        return $routeComposee;
+    } catch (Error $error) {
+        echo "Une erreur est survenue : " . $error->getMessage();
     }
 }
